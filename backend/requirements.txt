@@ -1,6 +1,2 @@
 fastapi
 uvicorn
-pydantic
-boto3
-openpyxl
-pandas
