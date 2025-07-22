@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Painel Auditoria AWS</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form onsubmit="login(event)">
+        <input type="text" id="username" placeholder="Usuário" required><br>
+        <input type="password" id="password" placeholder="Senha" required><br>
+        <button type="submit">Entrar</button>
+    </form>
+    <p id="error" style="color:red;"></p>
+
+    <script>
+        async function login(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const res = await fetch("/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.access_token) {
+                sessionStorage.setItem("token", data.access_token);
+                window.location.href = "/frontend/dashboard.html";
+            } else {
+                document.getElementById("error").textContent = data.detail || "Falha no login.";
+            }
+        }
+    </script>
+</body>
+</html>

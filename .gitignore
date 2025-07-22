@@ -3,3 +3,10 @@ dist/
 .env
 *.log
 .DS_Store
+.terraform/
+*.tfstate
+*.tfstate.*
+*.log
+*.backup
+.crash
+*.exe

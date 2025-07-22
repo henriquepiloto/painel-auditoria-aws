@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Relatórios de Auditoria</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Relatórios de Auditoria AWS</h2>
+    <table id="relatorios-table">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Cliente</th>
+                <th>ID da Conta</th>
+                <th>Serviço</th>
+                <th>Descrição</th>
+                <th>Severidade</th>
+                <th>Recomendação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dados inseridos via JS -->
+        </tbody>
+    </table>
+
+    <script src="/frontend/dashboard.js"></script>
+</body>
+</html>
